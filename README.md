@@ -8,10 +8,11 @@ Three-class sentiment analysis (negative, neutral, positive) of **20,098 self-sc
 |---|---|---|---|---|---|
 | 1 | LinearSVC | TF-IDF | 80/20 | 98.35% | 89.70% |
 | 2 | Logistic Regression | TF-IDF | 70/30 | 98.04% | 89.50% |
-| 3 | BiLSTM | Learned word embedding | 80/20 | 97.16% | 89.14% |
+| 3 | BiLSTM | Learned word embedding | 80/20 | 97.16% | 88.87% |
 | 4 | **LinearSVC** | **TF-IDF + negation tagging** | 80/20 | 99.23% | **91.16%** |
 
 Majority-class baseline: 80.13%.
+![Confusion matrix of the best model (Scheme 4)](images/confusion_matrix_skema4.png)
 
 ## Key finding
 
@@ -20,6 +21,7 @@ All three base models plateau at ~89–90% despite very different architectures.
 Negation tagging (e.g. `not good` → `not neg_good`) restores word-order information that TF-IDF loses, improving test accuracy by 1.46 points and negative-class recall from 55.4% to 63.7%.
 
 ## Dataset
+![Word clouds per sentiment label](images/wordcloud_per_label.png)
 
 - **Source:** Steam's official public review endpoint (`store.steampowered.com/appreviews/1627720`), with a 2-second delay between requests. No reviewer identities (SteamID, profile names) are stored.
 - **Period:** July 2024 – October 2026 (most recent reviews at time of scraping).
@@ -35,7 +37,6 @@ The dataset is **not included** in this repository because the review texts belo
 |---|---|
 | `notebooks/scraping_lies_of_p.ipynb` | Data collection with rate-limit handling and checkpointing |
 | `notebooks/pelatihan_model_sentimen.ipynb` | EDA, cleaning, labeling, 4 training schemes with hyperparameter tuning, error analysis, inference |
-| `models/model_skema4_svm_negasi.joblib` | Best model (Scheme 4) with its negation window size |
 
 Notebook explanations are written in Indonesian.
 
