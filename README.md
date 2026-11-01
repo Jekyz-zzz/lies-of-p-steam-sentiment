@@ -12,6 +12,7 @@ Three-class sentiment analysis (negative, neutral, positive) of **20,098 self-sc
 | 4 | **LinearSVC** | **TF-IDF + negation tagging** | 80/20 | 99.23% | **91.16%** |
 
 Majority-class baseline: 80.13%.
+
 ![Confusion matrix of the best model (Scheme 4)](images/confusion_matrix_skema4.png)
 
 ## Key finding
