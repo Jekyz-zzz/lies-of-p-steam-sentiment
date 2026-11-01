@@ -1,0 +1,8 @@
+*.csv
+checkpoint_cursor.txt
+*.keras
+vocab_skema3_bilstm.joblib
+model_skema1_*.joblib
+model_skema2_*.joblib
+.ipynb_checkpoints/
+__pycache__/
